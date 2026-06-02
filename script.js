@@ -23,28 +23,27 @@ bubbles.forEach((bubble, index) => {
 });
 
 const sweetsLayer = document.querySelector('.scroll-sweets');
-const sweetColors = ['#b8782e', '#6b351a', '#f4d0a3', '#ff6aad', '#fff8fb'];
+const crumbColors = ['#b8782e', '#8a4b20', '#d5a15b', '#f0d1a2', '#6b351a'];
 let sweetPieces = [];
 let ticking = false;
 
 function createSweetPieces() {
   if (!sweetsLayer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const count = window.innerWidth < 700 ? 14 : 26;
+  const count = window.innerWidth < 700 ? 18 : 32;
   sweetsLayer.innerHTML = '';
-  sweetPieces = Array.from({ length: count }, (_, index) => {
-    const piece = document.createElement('span');
-    const isDrip = index % 6 === 0;
-    if (isDrip) piece.classList.add('drip-dot');
 
-    const size = isDrip ? 10 + Math.random() * 9 : 7 + Math.random() * 13;
+  sweetPieces = Array.from({ length: count }, () => {
+    const piece = document.createElement('span');
+    const size = 4 + Math.random() * 9;
+
     piece.style.setProperty('--x', `${Math.random() * 100}vw`);
     piece.style.setProperty('--s', `${size}px`);
-    piece.style.setProperty('--c', sweetColors[Math.floor(Math.random() * sweetColors.length)]);
+    piece.style.setProperty('--c', crumbColors[Math.floor(Math.random() * crumbColors.length)]);
     piece.style.setProperty('--y', `${-80 - Math.random() * 120}px`);
     piece.style.setProperty('--r', `${Math.random() * 360}deg`);
     piece.style.setProperty('--o', '0');
-    piece.dataset.speed = String(0.18 + Math.random() * 0.72);
+    piece.dataset.speed = String(0.16 + Math.random() * 0.64);
     piece.dataset.offset = String(Math.random() * window.innerHeight);
     sweetsLayer.appendChild(piece);
     return piece;
@@ -61,9 +60,9 @@ function updateSweetPieces() {
     const speed = Number(piece.dataset.speed || 0.4);
     const offset = Number(piece.dataset.offset || 0);
     const y = ((scrollY * speed + offset) % (viewport + 180)) - 90;
-    const xDrift = Math.sin((scrollY + index * 61) / 180) * 18;
-    const rotate = scrollY * speed * 0.45 + index * 31;
-    const visible = progress > 0.02 ? 0.16 + Math.min(progress * 1.6, 0.62) : 0;
+    const xDrift = Math.sin((scrollY + index * 61) / 180) * 16;
+    const rotate = scrollY * speed * 0.5 + index * 33;
+    const visible = progress > 0.02 ? 0.2 + Math.min(progress * 1.25, 0.46) : 0;
 
     piece.style.setProperty('--y', `${y}px`);
     piece.style.setProperty('--r', `${rotate}deg`);
