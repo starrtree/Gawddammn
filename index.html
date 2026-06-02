@@ -14,7 +14,7 @@
   <div class="site-shell">
     <header class="nav" aria-label="Main navigation">
       <a class="brand" href="#home" aria-label="Gawddammn home">
-        <img src="GawddammnLOGO.PNG" alt="Gawddammn logo" />
+        <img src="public/images/GawddammnLOGO.PNG" alt="Gawddammn logo" />
       </a>
       <nav class="nav-links">
         <a href="#menu">Menu</a>
@@ -29,7 +29,11 @@
     <main>
       <section id="home" class="hero section-full">
         <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-art" aria-hidden="true">
+          <img src="public/images/GawddammnHEROmain.PNG" alt="" />
+        </div>
         <div class="drip drip-top" aria-hidden="true"></div>
+
         <div class="hero-copy">
           <p class="eyebrow">Special selections · custom batches · pan orders</p>
           <h1>Gawddammn<br><span>Desserts</span></h1>
@@ -41,14 +45,11 @@
           <p class="social-line">FB: Anna · IG: jasien.brveel</p>
         </div>
 
-        <div class="hero-stage" aria-label="Featured dessert artwork">
-          <img class="hero-main" src="GawddammnHEROmain.PNG" alt="Gawddammn hero cookie and mascot" />
-          <div class="bubble bubble-one">Gawww...</div>
-          <div class="bubble bubble-two">You hungry or just nosy?</div>
-          <div class="crumb c1"></div>
-          <div class="crumb c2"></div>
-          <div class="crumb c3"></div>
-        </div>
+        <div class="bubble bubble-one">Gawww...</div>
+        <div class="bubble bubble-two">You hungry or just nosy?</div>
+        <div class="crumb c1"></div>
+        <div class="crumb c2"></div>
+        <div class="crumb c3"></div>
       </section>
 
       <section id="menu" class="featured section-pad">
@@ -65,7 +66,7 @@
               <h3>Starrberry Joy</h3>
               <p>Mouthwatering strawberry cookie with strawberry homemade pudding icing, Lorna Doone wafer, strawberry slices, crumbs, and pink drizzle.</p>
             </div>
-            <img src="GawddammnSTRAWBERRY.PNG" alt="Starrberry Joy cookie" />
+            <img src="public/images/GawddammnSTRAWBERRY.PNG" alt="Starrberry Joy cookie" />
             <div class="card-bubble">Dddaammmnn!</div>
           </article>
 
@@ -75,7 +76,7 @@
               <h3>Oreo Blizzard</h3>
               <p>Fresh chocolate chip cookie with Oreo blended pudding, crumbled Oreo wafers, cookies n cream Hershey pieces, and white chocolate drizzle.</p>
             </div>
-            <img src="GawddammnCOOKIESnCREAM.PNG" alt="Oreo Blizzard cookie" />
+            <img src="public/images/GawddammnCOOKIESnCREAM.PNG" alt="Oreo Blizzard cookie" />
             <div class="card-bubble">No crumbs left.</div>
           </article>
 
@@ -110,8 +111,8 @@
             <a class="button primary" href="#order">Request a Pan Quote</a>
           </div>
           <div class="tray-preview">
-            <img src="GawddammnCOOKIESnCREAM.PNG" alt="Cookies n cream cookie preview" />
-            <img src="GawddammnSTRAWBERRY.PNG" alt="Strawberry cookie preview" />
+            <img src="public/images/GawddammnCOOKIESnCREAM.PNG" alt="Cookies n cream cookie preview" />
+            <img src="public/images/GawddammnSTRAWBERRY.PNG" alt="Strawberry cookie preview" />
           </div>
         </div>
       </section>
@@ -122,10 +123,10 @@
           <h2>Gallery</h2>
         </div>
         <div class="gallery-strip">
-          <img src="GawddammnHEROmain.PNG" alt="Gawddammn dessert hero" />
-          <img src="GawddammnSTRAWBERRY.PNG" alt="Strawberry dessert photo" />
-          <img src="GawddammnCOOKIESnCREAM.PNG" alt="Cookies n cream dessert photo" />
-          <img src="GawddammnLOGO.PNG" alt="Gawddammn logo sticker" />
+          <img src="public/images/GawddammnHEROmain.PNG" alt="Gawddammn dessert hero" />
+          <img src="public/images/GawddammnSTRAWBERRY.PNG" alt="Strawberry dessert photo" />
+          <img src="public/images/GawddammnCOOKIESnCREAM.PNG" alt="Cookies n cream dessert photo" />
+          <img src="public/images/GawddammnLOGO.PNG" alt="Gawddammn logo sticker" />
         </div>
       </section>
 
@@ -137,32 +138,11 @@
             <p>Cash App, Zelle, and Apple Pay accepted. For custom pans, include the size, date needed, and flavor mix.</p>
           </div>
           <form class="order-form" action="mailto:" method="post" enctype="text/plain">
-            <label>
-              Your name
-              <input name="name" placeholder="Your name" required />
-            </label>
-            <label>
-              Phone / IG handle
-              <input name="contact" placeholder="Phone or IG" required />
-            </label>
-            <label>
-              Dessert
-              <select name="dessert" required>
-                <option value="">Pick your dessert</option>
-                <option>Starrberry Joy</option>
-                <option>Oreo Blizzard</option>
-                <option>This The One</option>
-                <option>Custom pan / catering</option>
-              </select>
-            </label>
-            <label>
-              Quantity / pan size
-              <input name="quantity" placeholder="Example: 2 singles or half pan" />
-            </label>
-            <label class="full">
-              Notes
-              <textarea name="notes" placeholder="Pickup date, delivery request, flavor mix, special instructions..."></textarea>
-            </label>
+            <label>Your name<input name="name" placeholder="Your name" required /></label>
+            <label>Phone / IG handle<input name="contact" placeholder="Phone or IG" required /></label>
+            <label>Dessert<select name="dessert" required><option value="">Pick your dessert</option><option>Starrberry Joy</option><option>Oreo Blizzard</option><option>This The One</option><option>Custom pan / catering</option></select></label>
+            <label>Quantity / pan size<input name="quantity" placeholder="Example: 2 singles or half pan" /></label>
+            <label class="full">Notes<textarea name="notes" placeholder="Pickup date, delivery request, flavor mix, special instructions..."></textarea></label>
             <button class="button primary full" type="submit">Send My Gawddammn Order</button>
           </form>
         </div>
@@ -170,7 +150,7 @@
     </main>
 
     <footer class="footer">
-      <img src="GawddammnLOGO.PNG" alt="Gawddammn logo" />
+      <img src="public/images/GawddammnLOGO.PNG" alt="Gawddammn logo" />
       <p>Homemade with love · Quality ingredients · Made to order fresh always</p>
       <p>FB: Anna · IG: jasien.brveel · Cincinnati, OH</p>
     </footer>
