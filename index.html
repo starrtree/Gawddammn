@@ -11,8 +11,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="scroll-sweets" aria-hidden="true"></div>
+
   <div class="site-shell">
-    <header class="nav" aria-label="Main navigation">
+    <header class="nav glass-panel" aria-label="Main navigation">
       <a class="brand" href="#home" aria-label="Gawddammn home">
         <img src="public/images/GawddammnLOGO.PNG" alt="Gawddammn logo" />
       </a>
@@ -30,11 +32,14 @@
       <section id="home" class="hero section-full">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-art" aria-hidden="true">
-          <img src="public/images/GawddammnHEROmain.PNG" alt="" />
+          <img class="hero-slide slide-one" src="public/images/GawddammnHEROmain.PNG" alt="" />
+          <img class="hero-slide slide-two" src="public/images/GawddammnSTRAWBERRY.PNG" alt="" />
+          <img class="hero-slide slide-three" src="public/images/GawddammnCOOKIESnCREAM.PNG" alt="" />
         </div>
+        <div class="hero-outline" aria-hidden="true"></div>
         <div class="drip drip-top" aria-hidden="true"></div>
 
-        <div class="hero-copy">
+        <div class="hero-copy glass-copy">
           <p class="eyebrow">Special selections · custom batches · pan orders</p>
           <h1>Gawddammn<br><span>Desserts</span></h1>
           <p class="hero-tagline">Ate and left no crumbs.</p>
@@ -54,8 +59,8 @@
 
       <section id="menu" class="featured section-pad">
         <div class="section-heading">
-          <p class="eyebrow">Featured drops</p>
-          <h2>Pick your problem.</h2>
+          <p class="eyebrow dark">Featured drops</p>
+          <h2>Pick your Gawddammn dessert.</h2>
           <p>Soft cookies, homemade pudding icing, loud toppings, and that final drizzle.</p>
         </div>
 
@@ -71,7 +76,7 @@
           </article>
 
           <article class="product-card oreo-card">
-            <div class="price-badge dark">$5</div>
+            <div class="price-badge dark-badge">$5</div>
             <div class="product-text">
               <h3>Oreo Blizzard</h3>
               <p>Fresh chocolate chip cookie with Oreo blended pudding, crumbled Oreo wafers, cookies n cream Hershey pieces, and white chocolate drizzle.</p>
@@ -103,9 +108,9 @@
       </section>
 
       <section id="catering" class="catering section-pad">
-        <div class="catering-card">
+        <div class="catering-card glass-panel light">
           <div>
-            <p class="eyebrow">Pans & catering</p>
+            <p class="eyebrow dark">Pans & catering</p>
             <h2>Need a pan? Say less.</h2>
             <p>From small trays to full party pans, custom orders are available. Prices vary by pan size upon request.</p>
             <a class="button primary" href="#order">Request a Pan Quote</a>
@@ -119,7 +124,7 @@
 
       <section id="gallery" class="gallery section-pad">
         <div class="section-heading compact">
-          <p class="eyebrow">Real people. Real cravings.</p>
+          <p class="eyebrow dark">Real people. Real cravings.</p>
           <h2>Gallery</h2>
         </div>
         <div class="gallery-strip">
@@ -131,9 +136,9 @@
       </section>
 
       <section id="order" class="order section-pad">
-        <div class="order-panel">
+        <div class="order-panel glass-panel light">
           <div class="order-copy">
-            <p class="eyebrow">Ready to order?</p>
+            <p class="eyebrow dark">Ready to order?</p>
             <h2>Send your Gawddammn request.</h2>
             <p>Cash App, Zelle, and Apple Pay accepted. For custom pans, include the size, date needed, and flavor mix.</p>
           </div>
