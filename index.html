@@ -4,19 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#2b101a" />
-  <title>Gawddammn Desserts | Ate and Left No Crumbs</title>
-  <meta name="description" content="Gawddammn Desserts serves cookies, cheesecake bites, pudding cups, custom batches, and pan orders in Cincinnati." />
+  <title>Gawddammn Desserts | Flavors That Snatch Yo Soul</title>
+  <meta name="description" content="Gawddammn Desserts serves loaded cookies, pudding cups, cheesecake bites, custom batches, and pan orders in Cincinnati." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="nav" aria-label="Primary navigation">
-    <a href="#home" class="brand-text" aria-label="Gawddammn home">GWD</a>
+    <a href="#home" class="brand-lockup" aria-label="Gawddammn home">
+      <img src="public/images/OG-Logo-GWD.PNG" alt="GWD" />
+    </a>
     <nav>
-      <a href="#drops">Drops</a>
-      <a href="#cups">Cups</a>
+      <a href="#drops">Featured</a>
+      <a href="#cups">Pudding Cups</a>
       <a href="#menu">Menu</a>
       <a href="#order">Order</a>
     </nav>
@@ -29,18 +31,22 @@
       <div class="hero-glow glow-two" aria-hidden="true"></div>
 
       <div class="hero-copy">
-        <p class="kicker">Cincinnati desserts · made to order</p>
-        <h1>ATE AND LEFT<br><em>NO CRUMBS.</em></h1>
-        <p class="lede">Cookies, cheesecake bites, pudding cups, custom pans — built to make you say it.</p>
+        <p class="kicker">Cincinnati · made to order</p>
+        <h1>FLAVORS THAT<br><em>SNATCH YO SOUL.</em></h1>
+        <p class="lede">Loaded cookies, pudding cups, cheesecake bites, and custom pans made fresh to order.</p>
+        <p class="hero-line">Taste so good, make ya say <strong>“GAWDDAMMN!”</strong></p>
         <div class="actions">
-          <a class="pill pink" href="#drops">See the drops</a>
-          <a class="pill ghost" href="#menu">Full menu</a>
+          <a class="pill pink" href="#drops">View featured</a>
+          <a class="pill ghost" href="#menu">See full menu</a>
         </div>
       </div>
 
       <div class="hero-stage" data-parallax>
-        <div class="halo halo-a" aria-hidden="true"></div>
-        <div class="halo halo-b" aria-hidden="true"></div>
+        <div class="hero-brandmark" aria-label="Gawddammn animated logo">
+          <div class="brand-aura" aria-hidden="true"></div>
+          <img class="hero-gwd" src="public/images/OG-Logo-GWD.PNG" alt="" aria-hidden="true" />
+          <img class="hero-baker" src="public/images/NEW-logo-base.PNG" alt="Gawddammn baker mascot" />
+        </div>
         <img class="hero-cookie hero-strawberry" src="public/images/strawberry-pudding-cookie.webp" alt="Strawberry Pudding cookie" />
         <img class="hero-cookie hero-oreo" src="public/images/oreo-wonder-cookie.webp" alt="Oreo Wonder cookie" />
         <img class="hero-cookie hero-biscoff" src="public/images/carmel-biscoff-cookie.webp" alt="Carmel Biscoff cookie" />
@@ -52,17 +58,17 @@
 
     <section class="drops" id="drops">
       <div class="section-head">
-        <p class="kicker dark">Featured drops</p>
-        <h2>Pick your problem.</h2>
-        <p>Big cookies. Thick pudding. Zero subtlety.</p>
+        <p class="kicker dark">Featured favorites</p>
+        <h2>Start with the favorites.</h2>
+        <p>Loaded cookies, thick toppings, and fresh-made flavor in every order.</p>
       </div>
 
       <article class="story story-oreo">
         <div class="story-copy">
           <span class="tag">NEW · $6</span>
           <h3>Oreo Wonder</h3>
-          <p>Dark chocolate cookie with cookies-and-cream topping, Oreo pieces, cookies-and-cream chocolate, and white drizzle.</p>
-          <a href="#order" class="text-link">I need this →</a>
+          <p>Dark chocolate cookie topped with cookies-and-cream pudding, Oreo pieces, cookies-and-cream chocolate, and white drizzle.</p>
+          <a href="#order" class="text-link">Order Oreo Wonder →</a>
         </div>
         <div class="product-orbit">
           <div class="orbit-ring" aria-hidden="true"></div>
@@ -80,17 +86,17 @@
         <div class="story-copy">
           <span class="tag warm">NEW · $6</span>
           <h3>Carmel Biscoff</h3>
-          <p>Golden cookie layered with rich caramel-Biscoff spread, cookie crumble, drizzle, and a full Biscoff biscuit.</p>
-          <a href="#order" class="text-link">Gimme that →</a>
+          <p>Golden cookie layered with rich caramel-Biscoff spread, cookie crumble, caramel drizzle, and a full Biscoff biscuit.</p>
+          <a href="#order" class="text-link">Order Carmel Biscoff →</a>
         </div>
       </article>
 
       <article class="story story-strawberry">
         <div class="story-copy">
-          <span class="tag">CLASSIC</span>
+          <span class="tag">SIGNATURE</span>
           <h3>Strawberry Pudding</h3>
-          <p>Strawberry cookie with strawberry pudding, vanilla wafer crumble, strawberries, and pink drizzle.</p>
-          <a href="#order" class="text-link">Add it →</a>
+          <p>Strawberry cookie topped with strawberry pudding, vanilla wafer crumble, fresh strawberries, and pink drizzle.</p>
+          <a href="#order" class="text-link">Order Strawberry Pudding →</a>
         </div>
         <div class="product-orbit single">
           <div class="orbit-ring berry" aria-hidden="true"></div>
@@ -101,17 +107,17 @@
 
     <section class="splash-section">
       <div class="splash-copy">
-        <span>why it hit like that?</span>
-        <strong>Fresh baked.<br>Thick pudding.<br>Loud toppings.</strong>
+        <span>The GWD difference</span>
+        <strong>Fresh baked.<br>Thick pudding.<br>Loaded toppings.</strong>
       </div>
-      <img class="splash-drip edge-drip" src="public/images/strawberry-splash-divider.webp" alt="" aria-hidden="true" />
+      <img class="splash-drip edge-drip" src="public/images/strawberry-splash-divider2.PNG" alt="" aria-hidden="true" />
     </section>
 
     <section class="cups" id="cups">
       <div class="section-head">
         <p class="kicker dark">Pudding cups</p>
-        <h2>Scoop-worthy.</h2>
-        <p>Current flavors vary. Ask about availability.</p>
+        <h2>Layered from top to bottom.</h2>
+        <p>Current flavors vary. Ask about availability and custom orders.</p>
       </div>
       <div class="cup-grid">
         <article><div class="cup-frame"><img src="public/images/strawberry-pudding-cup.webp" alt="Strawberry pudding cup" /></div><h3>Strawberry</h3></article>
@@ -120,41 +126,28 @@
       </div>
       <div class="cup-alt">
         <img src="public/images/strawberry-pudding-cup-alt.webp" alt="Alternate strawberry pudding cup" />
-        <div><small>THE MOOD</small><span>Ate and left no crumbs.</span></div>
-      </div>
-    </section>
-
-    <section class="brand-reveal" id="brand">
-      <div class="brand-reveal-copy">
-        <p class="kicker">The GWD signature</p>
-        <h2>One mark.<br>Three beats.</h2>
-        <p>The logo now reveals itself the way you described: baker first, GWD second, then the full burst.</p>
-      </div>
-      <div class="logo-stage" aria-label="Animated Gawddammn logo reveal">
-        <div class="logo-stage-glow" aria-hidden="true"></div>
-        <img class="logo-step logo-step-1" src="public/images/brand-mascot.webp" alt="Gawddammn baker mascot" />
-        <img class="logo-step logo-step-2" src="public/images/brand-combo.webp" alt="Gawddammn mascot with GWD lettering" />
-        <img class="logo-step logo-step-3" src="public/images/brand-burst.webp" alt="Full Gawddammn burst logo" />
+        <div><small>GWD ORIGINAL</small><span>Ate and left no crumbs.</span></div>
       </div>
     </section>
 
     <section class="packaging">
+      <img class="packaging-watermark" src="public/images/brand-watermark.png" alt="" aria-hidden="true" />
       <div class="packaging-art">
         <div class="box-glow" aria-hidden="true"></div>
         <img class="box" src="public/images/gwd-bakery-box.webp" alt="Gawddammn branded bakery box" />
       </div>
       <div class="packaging-copy">
-        <p class="kicker dark">Pink box energy</p>
-        <h2>Pull up with the box.</h2>
-        <p>Branded packaging keeps the whole experience feeling like GWD before the first bite even happens.</p>
-        <a class="text-link" href="#order">Fill the box →</a>
+        <p class="kicker dark">GWD packaging</p>
+        <h2>Made to look as good as it tastes.</h2>
+        <p>Every order is finished with GWD branding and packaged clean for pickup, gifting, or a dessert table.</p>
+        <a class="text-link" href="#order">Start an order →</a>
       </div>
     </section>
 
     <section class="menu" id="menu">
       <div class="section-head">
-        <p class="kicker dark">Current menu</p>
-        <h2>Everything on deck.</h2>
+        <p class="kicker dark">Menu</p>
+        <h2>Current flavors & pricing.</h2>
       </div>
       <div class="menu-columns">
         <div>
@@ -184,8 +177,8 @@
     <section class="order" id="order">
       <div class="order-card">
         <div>
-          <p class="kicker">Ready?</p>
-          <h2>Send the Gawddammn order.</h2>
+          <p class="kicker">Orders</p>
+          <h2>Place an order.</h2>
           <p>Cash App, Zelle, and Apple Pay accepted. Include quantity, flavor, date needed, and pan size if applicable.</p>
           <p class="social">Instagram: <b>@gawddammn_llc</b> · Facebook: <b>Anna</b></p>
         </div>
@@ -202,8 +195,9 @@
   </main>
 
   <footer>
-    <div class="footer-mark">GWD</div>
-    <p>Ate and left no crumbs.</p>
+    <img class="footer-logo" src="public/images/OG-Logo-GWD.PNG" alt="GWD" />
+    <p>Flavors That Snatch Yo Soul!</p>
+    <p class="footer-small">Cincinnati · @gawddammn_llc</p>
   </footer>
 
   <script src="script.js"></script>
