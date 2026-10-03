@@ -1,159 +1,79 @@
-const revealItems = document.querySelectorAll('.menu-column, .menu-item, .process-step, .catering-card, .gallery-thumb, .order-panel');
+const revealItems = document.querySelectorAll('.story, .cup-grid article, .cup-alt, .brand-section, .menu-columns > div, .order-card');
+revealItems.forEach(el => el.classList.add('reveal'));
 
-revealItems.forEach((item) => item.classList.add('reveal'));
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('in');
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.16 });
+}, { threshold: 0.14 });
+revealItems.forEach(el => observer.observe(el));
 
-revealItems.forEach((item) => observer.observe(item));
-
-const phrases = ['Gawww...', 'Dddaammmnnn!', 'Ate and left no crumbs!', 'Pick one before I do.', 'That one dangerous.'];
-const bubbles = document.querySelectorAll('.bubble, .card-bubble');
-
-bubbles.forEach((bubble, index) => {
-  setInterval(() => {
-    bubble.textContent = phrases[(index + Math.floor(Date.now() / 2500)) % phrases.length];
-  }, 2500);
-});
-
-const sweetsLayer = document.querySelector('.scroll-sweets');
-const crumbColors = ['#b8782e', '#8a4b20', '#d5a15b', '#f0d1a2', '#6b351a'];
-let sweetPieces = [];
-let ticking = false;
-
-function createSweetPieces() {
-  if (!sweetsLayer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  const count = window.innerWidth < 700 ? 18 : 32;
-  sweetsLayer.innerHTML = '';
-
-  sweetPieces = Array.from({ length: count }, () => {
-    const piece = document.createElement('span');
-    const size = 4 + Math.random() * 9;
-
-    piece.style.setProperty('--x', `${Math.random() * 100}vw`);
-    piece.style.setProperty('--s', `${size}px`);
-    piece.style.setProperty('--c', crumbColors[Math.floor(Math.random() * crumbColors.length)]);
-    piece.style.setProperty('--y', `${-80 - Math.random() * 120}px`);
-    piece.style.setProperty('--r', `${Math.random() * 360}deg`);
-    piece.style.setProperty('--o', '0');
-    piece.dataset.speed = String(0.16 + Math.random() * 0.64);
-    piece.dataset.offset = String(Math.random() * window.innerHeight);
-    sweetsLayer.appendChild(piece);
-    return piece;
+const parallax = document.querySelector('[data-parallax]');
+if (parallax && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  parallax.addEventListener('pointermove', e => {
+    const rect = parallax.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - .5;
+    const y = (e.clientY - rect.top) / rect.height - .5;
+    const layers = [
+      ['.hero-strawberry', 14, -9],
+      ['.hero-oreo', 22, 10],
+      ['.hero-biscoff', 18, -8],
+      ['.hero-mascot', 10, 0]
+    ];
+    layers.forEach(([sel, amount, rotate]) => {
+      const el = parallax.querySelector(sel);
+      if (el) el.style.transform = `translate(${x * amount}px, ${y * amount}px) rotate(${rotate + x * 3}deg)`;
+    });
+  });
+  parallax.addEventListener('pointerleave', () => {
+    const reset = {'.hero-strawberry':'rotate(-9deg)', '.hero-oreo':'rotate(10deg)', '.hero-biscoff':'rotate(-8deg)', '.hero-mascot':'none'};
+    Object.entries(reset).forEach(([sel, transform]) => {
+      const el = parallax.querySelector(sel);
+      if (el) el.style.transform = transform;
+    });
   });
 }
 
-function updateSweetPieces() {
-  const scrollY = window.scrollY || window.pageYOffset;
-  const viewport = window.innerHeight || 800;
-  const docHeight = Math.max(document.body.scrollHeight - viewport, 1);
-  const progress = scrollY / docHeight;
-
-  sweetPieces.forEach((piece, index) => {
-    const speed = Number(piece.dataset.speed || 0.4);
-    const offset = Number(piece.dataset.offset || 0);
-    const y = ((scrollY * speed + offset) % (viewport + 180)) - 90;
-    const xDrift = Math.sin((scrollY + index * 61) / 180) * 16;
-    const rotate = scrollY * speed * 0.5 + index * 33;
-    const visible = progress > 0.02 ? 0.14 + Math.min(progress * 0.9, 0.34) : 0;
-
-    piece.style.setProperty('--y', `${y}px`);
-    piece.style.setProperty('--r', `${rotate}deg`);
-    piece.style.transform = `translate3d(${xDrift}px, var(--y), 0) rotate(var(--r))`;
-    piece.style.setProperty('--o', visible.toFixed(2));
+document.querySelectorAll('.product-orbit').forEach(orbit => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  orbit.addEventListener('pointermove', e => {
+    const r = orbit.getBoundingClientRect();
+    const x = (e.clientX-r.left)/r.width-.5;
+    const y = (e.clientY-r.top)/r.height-.5;
+    const main = orbit.querySelector('img:not(.alt)');
+    const alt = orbit.querySelector('.alt');
+    if(main) main.style.transform = `translate(${x*12}px,${y*10}px) rotate(${x*3}deg)`;
+    if(alt) alt.style.transform = `translate(${x*-18}px,${y*-14}px) rotate(${-12+x*-5}deg)`;
   });
+  orbit.addEventListener('pointerleave', () => {
+    const main = orbit.querySelector('img:not(.alt)');
+    const alt = orbit.querySelector('.alt');
+    if(main) main.style.transform = '';
+    if(alt) alt.style.transform = 'rotate(-12deg)';
+  });
+});
 
-  ticking = false;
-}
-
-function requestSweetUpdate() {
-  if (!ticking) {
-    window.requestAnimationFrame(updateSweetPieces);
-    ticking = true;
+const orderForm = document.getElementById('orderForm');
+orderForm?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const data = new FormData(orderForm);
+  const text = [
+    'Gawddammn order request',
+    `Name: ${data.get('name') || ''}`,
+    `Contact: ${data.get('contact') || ''}`,
+    `Dessert: ${data.get('dessert') || ''}`,
+    `Quantity/size: ${data.get('qty') || ''}`,
+    `Notes: ${data.get('notes') || ''}`
+  ].join('\n');
+  try { await navigator.clipboard.writeText(text); } catch (_) {}
+  const btn = orderForm.querySelector('button');
+  if (btn) {
+    const old = btn.textContent;
+    btn.textContent = 'GAWDDAMMN. COPIED.';
+    setTimeout(() => btn.textContent = old, 2200);
   }
-}
-
-createSweetPieces();
-updateSweetPieces();
-window.addEventListener('scroll', requestSweetUpdate, { passive: true });
-window.addEventListener('resize', () => {
-  createSweetPieces();
-  updateSweetPieces();
-});
-
-const thumbs = Array.from(document.querySelectorAll('.gallery-thumb'));
-const lightbox = document.querySelector('.lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const lightboxCaption = document.querySelector('.lightbox-caption');
-const closeBtn = document.querySelector('.lightbox-close');
-const prevBtn = document.querySelector('.lightbox-prev');
-const nextBtn = document.querySelector('.lightbox-next');
-let activeGalleryIndex = 0;
-let touchStartX = 0;
-let touchEndX = 0;
-
-function openGallery(index) {
-  if (!lightbox || !lightboxImg || !thumbs.length) return;
-  activeGalleryIndex = (index + thumbs.length) % thumbs.length;
-  const thumb = thumbs[activeGalleryIndex];
-  const img = thumb.querySelector('img');
-  lightboxImg.src = img.src;
-  lightboxImg.alt = img.alt;
-  lightboxCaption.textContent = thumb.dataset.title || img.alt || 'Gawddammn gallery image';
-  lightbox.classList.add('open');
-  lightbox.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeGallery() {
-  if (!lightbox) return;
-  lightbox.classList.remove('open');
-  lightbox.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-function showNext() {
-  openGallery(activeGalleryIndex + 1);
-}
-
-function showPrev() {
-  openGallery(activeGalleryIndex - 1);
-}
-
-thumbs.forEach((thumb, index) => {
-  thumb.addEventListener('click', () => openGallery(index));
-});
-
-closeBtn?.addEventListener('click', closeGallery);
-nextBtn?.addEventListener('click', showNext);
-prevBtn?.addEventListener('click', showPrev);
-
-lightbox?.addEventListener('click', (event) => {
-  if (event.target === lightbox) closeGallery();
-});
-
-lightbox?.addEventListener('touchstart', (event) => {
-  touchStartX = event.changedTouches[0].screenX;
-}, { passive: true });
-
-lightbox?.addEventListener('touchend', (event) => {
-  touchEndX = event.changedTouches[0].screenX;
-  const diff = touchStartX - touchEndX;
-  if (Math.abs(diff) > 45) {
-    diff > 0 ? showNext() : showPrev();
-  }
-}, { passive: true });
-
-window.addEventListener('keydown', (event) => {
-  if (!lightbox?.classList.contains('open')) return;
-  if (event.key === 'Escape') closeGallery();
-  if (event.key === 'ArrowRight') showNext();
-  if (event.key === 'ArrowLeft') showPrev();
+  window.open('https://www.instagram.com/gawddammn_llc/', '_blank', 'noopener,noreferrer');
 });
