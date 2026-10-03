@@ -4,215 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gawddammn Desserts | Ate and Left No Crumbs</title>
-  <meta name="description" content="Gawddammn Desserts serves cheesecake bites, custom cookies, pudding-drip dessert drops, and pan orders by request." />
+  <meta name="description" content="Gawddammn Desserts serves cookies, cheesecake bites, pudding cups, custom batches, and pan orders." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="scroll-sweets" aria-hidden="true"></div>
+  <header class="nav">
+    <a href="#home" class="brand"><img src="public/images/brand-wordmark.webp" alt="Gawddammn Desserts" /></a>
+    <nav>
+      <a href="#drops">Drops</a><a href="#menu">Menu</a><a href="#cups">Cups</a><a href="#order">Order</a>
+    </nav>
+    <a class="pill pink" href="#order">Order now</a>
+  </header>
 
-  <div class="site-shell">
-    <header class="nav glass-panel" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Gawddammn home">
-        <img src="public/images/GawddammnLOGO.PNG" alt="Gawddammn logo" />
-      </a>
-      <nav class="nav-links">
-        <a href="#menu">Menu</a>
-        <a href="#process">The Drip</a>
-        <a href="#catering">Pans</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#order">Order</a>
-      </nav>
-      <a class="nav-cta" href="#order">Order Now</a>
-    </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="kicker">Cincinnati desserts · made to order</p>
+        <h1>ATE AND LEFT<br><em>NO CRUMBS.</em></h1>
+        <p class="lede">Cookies, cheesecake bites, pudding cups, custom pans — built to make you say it.</p>
+        <div class="actions"><a class="pill pink" href="#drops">See the drops</a><a class="pill ghost" href="#menu">Full menu</a></div>
+      </div>
+      <div class="hero-stage" data-parallax>
+        <img class="hero-cookie hero-strawberry" src="public/images/strawberry-pudding-cookie.webp" alt="Strawberry Pudding cookie" />
+        <img class="hero-cookie hero-oreo" src="public/images/oreo-wonder-cookie.webp" alt="Oreo Wonder cookie" />
+        <img class="hero-cookie hero-biscoff" src="public/images/carmel-biscoff-cookie.webp" alt="Carmel Biscoff cookie" />
+        <img class="hero-mascot" src="public/images/brand-mascot.webp" alt="Gawddammn mascot" />
+        <div class="reaction" aria-hidden="true">GAWDDAMMN!</div>
+      </div>
+      <img class="hero-drip" src="public/images/strawberry-drip-divider.webp" alt="" aria-hidden="true" />
+    </section>
 
-    <main>
-      <section id="home" class="hero section-full">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-art" aria-hidden="true">
-          <img class="hero-slide slide-one" src="public/images/GawddammnHEROmain.PNG" alt="" />
-          <img class="hero-slide slide-two" src="public/images/GawddammnSTRAWBERRY.PNG" alt="" />
-          <img class="hero-slide slide-three" src="public/images/GawddammnCOOKIESnCREAM.PNG" alt="" />
-        </div>
-        <div class="hero-outline" aria-hidden="true"></div>
-        <div class="drip drip-top" aria-hidden="true"></div>
+    <section class="drops" id="drops">
+      <div class="section-head"><p class="kicker dark">Featured drops</p><h2>Pick your problem.</h2></div>
 
-        <div class="hero-copy glass-copy">
-          <p class="eyebrow">Cheesecake bites · cookies · custom batches · pan orders</p>
-          <h1>Gawddammn<br><span>Desserts</span></h1>
-          <p class="hero-tagline">Ate and left no crumbs.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#order">Start My Order</a>
-            <a class="button secondary" href="#menu">View Menu</a>
-          </div>
-          <p class="social-line">IG: @gawddammn_llc · FB: Anna</p>
-        </div>
+      <article class="story story-oreo">
+        <div class="story-copy"><span class="tag">NEW · $6</span><h3>Oreo Wonder</h3><p>Dark chocolate cookie with cookies-and-cream topping, Oreo pieces, cookies-and-cream chocolate, and white drizzle.</p><a href="#order" class="text-link">I need this →</a></div>
+        <div class="product-orbit"><img src="public/images/oreo-wonder-cookie.webp" alt="Oreo Wonder cookie" /><img class="alt" src="public/images/oreo-wonder-cookie-alt.webp" alt="Alternate Oreo Wonder cookie" /></div>
+      </article>
 
-        <div class="bubble bubble-one">Gawww...</div>
-        <div class="bubble bubble-two">You hungry or just nosy?</div>
-      </section>
+      <article class="story story-biscoff">
+        <div class="product-orbit"><img src="public/images/carmel-biscoff-cookie.webp" alt="Carmel Biscoff cookie" /><img class="alt" src="public/images/carmel-biscoff-cookie-alt.webp" alt="Alternate Carmel Biscoff cookie" /></div>
+        <div class="story-copy"><span class="tag warm">NEW · $6</span><h3>Carmel Biscoff</h3><p>Golden cookie layered with rich caramel-Biscoff spread, cookie crumble, drizzle, and a full Biscoff biscuit.</p><a href="#order" class="text-link">Gimme that →</a></div>
+      </article>
 
-      <section id="menu" class="featured section-pad">
-        <div class="section-heading">
-          <p class="eyebrow dark">Updated menu</p>
-          <h2>Pick your Gawddammn dessert.</h2>
-          <p>Cheesecake bites are $10 per flavor. Cookies are $5 each. Custom pan prices vary by size upon request.</p>
-        </div>
+      <article class="story story-strawberry">
+        <div class="story-copy"><span class="tag">CLASSIC</span><h3>Strawberry Pudding</h3><p>Strawberry cookie with strawberry pudding, vanilla wafer crumble, strawberries, and pink drizzle.</p><a href="#order" class="text-link">Add it →</a></div>
+        <div class="product-orbit single"><img src="public/images/strawberry-pudding-cookie.webp" alt="Strawberry Pudding cookie" /></div>
+      </article>
+    </section>
 
-        <div class="menu-layout">
-          <article class="menu-column glass-panel light cheesecake-menu">
-            <div class="ribbon-title">Cheesecake Bites</div>
-            <p class="menu-price">$10 / flavor</p>
+    <section class="splash-section">
+      <img src="public/images/strawberry-splash-divider.webp" alt="" aria-hidden="true" />
+      <div class="splash-copy"><span>why it hit like that?</span><strong>Fresh baked. Thick pudding. Loud toppings.</strong></div>
+    </section>
 
-            <div class="menu-item image-wanted strawberry-crunch">
-              <div class="dessert-art cheesecake strawberry"></div>
-              <div>
-                <h3>Strawberry Crunch</h3>
-                <p>Creamy cheesecake topped with strawberry crunch and graham crumbles.</p>
-              </div>
-            </div>
+    <section class="cups" id="cups">
+      <div class="section-head"><p class="kicker dark">Pudding cups</p><h2>Scoop-worthy.</h2><p>Current flavors vary. Ask about availability.</p></div>
+      <div class="cup-grid">
+        <article><img src="public/images/strawberry-pudding-cup.webp" alt="Strawberry pudding cup" /><h3>Strawberry</h3></article>
+        <article><img src="public/images/oreo-wonder-cup.webp" alt="Oreo Wonder pudding cup" /><h3>Oreo Wonder</h3></article>
+        <article><img src="public/images/carmel-biscoff-cup.webp" alt="Carmel Biscoff pudding cup" /><h3>Carmel Biscoff</h3></article>
+      </div>
+      <div class="cup-alt"><img src="public/images/strawberry-pudding-cup-alt.webp" alt="Alternate strawberry pudding cup" /><span>Ate and left no crumbs.</span></div>
+    </section>
 
-            <div class="menu-item image-wanted cookie-creme-bite">
-              <div class="dessert-art cheesecake oreo"></div>
-              <div>
-                <h3>Cookie & Crème</h3>
-                <p>Rich cookies and crème cheesecake with Oreo pieces and cookie crumbles.</p>
-              </div>
-            </div>
+    <section class="brand-section">
+      <div class="brand-copy"><p class="kicker dark">The box says enough.</p><h2>Show up with the pink box.</h2><p>GWD packaging, mascot branding, and the signature strawberry-pudding look tie every order back to the brand.</p></div>
+      <img class="box" src="public/images/gwd-bakery-box.webp" alt="Gawddammn branded bakery box" />
+      <div class="brand-stack"><img src="public/images/brand-combo.webp" alt="Gawddammn mascot and logo" /><img src="public/images/brand-burst.webp" alt="Gawddammn burst logo" /></div>
+    </section>
 
-            <div class="menu-item image-wanted fruity-pebbles">
-              <div class="dessert-art cheesecake fruity"></div>
-              <div>
-                <h3>Fruity Pebbles</h3>
-                <p>Sweet cheesecake topped with fruity pebbles and vanilla icing drizzle.</p>
-              </div>
-            </div>
-          </article>
+    <section class="menu" id="menu">
+      <div class="section-head"><p class="kicker dark">Current menu</p><h2>Everything on deck.</h2></div>
+      <div class="menu-columns">
+        <div><h3>Cheesecake Bites <small>$10 / flavor</small></h3><ul><li><b>Strawberry Crunch</b><span>Creamy cheesecake, strawberry crunch, graham crumbles.</span></li><li><b>Cookie & Crème</b><span>Cookies-and-crème cheesecake, Oreo pieces, cookie crumbles.</span></li><li><b>Fruity Pebbles</b><span>Sweet cheesecake, fruity pebbles, vanilla icing drizzle.</span></li></ul></div>
+        <div><h3>Cookies</h3><ul><li><b>Oreo Wonder</b><span>$6 · newer drop</span></li><li><b>Carmel Biscoff</b><span>$6 · newer drop</span></li><li><b>Strawberry Pudding</b><span>Strawberry pudding, wafers, strawberries, drizzle.</span></li><li><b>Oreo</b><span>Cookies-and-cream pudding, Oreos, white drizzle.</span></li><li><b>Banana Pudding</b><span>Banana pudding, vanilla wafer crumble, banana slices.</span></li><li><b>Butterscotch Pudding</b><span>Butterscotch pudding, cookie crumble, caramel drizzle.</span></li><li><b>Peanut Butter</b><span>Peanut butter pudding, peanut crunch, drizzle.</span></li></ul></div>
+      </div>
+      <p class="note">Custom pan prices vary by size upon request.</p>
+    </section>
 
-          <article class="menu-column glass-panel light cookies-menu">
-            <div class="ribbon-title">Cookies</div>
-            <p class="menu-price">$5 each</p>
+    <section class="order" id="order">
+      <div class="order-card">
+        <div><p class="kicker">Ready?</p><h2>Send the Gawddammn order.</h2><p>Cash App, Zelle, and Apple Pay accepted. Include quantity, flavor, date needed, and pan size if applicable.</p><p class="social">Instagram: <b>@gawddammn_llc</b> · Facebook: <b>Anna</b></p></div>
+        <form id="orderForm">
+          <label>Name<input name="name" required /></label>
+          <label>Phone / IG<input name="contact" required /></label>
+          <label>Dessert<select name="dessert"><option>Oreo Wonder — $6</option><option>Carmel Biscoff — $6</option><option>Strawberry Pudding Cookie</option><option>Oreo Cookie</option><option>Banana Pudding Cookie</option><option>Butterscotch Pudding Cookie</option><option>Peanut Butter Cookie</option><option>Strawberry Crunch Cheesecake Bites</option><option>Cookie & Crème Cheesecake Bites</option><option>Fruity Pebbles Cheesecake Bites</option><option>Pudding cup / ask current flavor</option><option>Custom pan / catering</option></select></label>
+          <label>Quantity / size<input name="qty" /></label>
+          <label class="wide">Notes<textarea name="notes"></textarea></label>
+          <button class="pill pink wide" type="submit">Copy order + open Instagram</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-            <div class="menu-item featured-cookie">
-              <img src="public/images/GawddammnSTRAWBERRY.PNG" alt="Strawberry pudding cookie" />
-              <div>
-                <h3>Strawberry Pudding</h3>
-                <p>Strawberry cookie with strawberry pudding, vanilla wafer crumble, strawberries, and drizzle.</p>
-              </div>
-            </div>
-
-            <div class="menu-item featured-cookie">
-              <img src="public/images/GawddammnCOOKIESnCREAM.PNG" alt="Oreo cookie" />
-              <div>
-                <h3>Oreo</h3>
-                <p>Chocolate chip cookie topped with cookies and cream pudding, Oreos, and white drizzle.</p>
-              </div>
-            </div>
-
-            <div class="menu-item image-wanted banana-cookie">
-              <div class="dessert-art cookie banana"></div>
-              <div>
-                <h3>Banana Pudding</h3>
-                <p>Banana cookie topped with banana pudding, vanilla wafer crumble, banana slices, and drizzle.</p>
-              </div>
-            </div>
-
-            <div class="menu-item image-wanted butterscotch-cookie">
-              <div class="dessert-art cookie butterscotch"></div>
-              <div>
-                <h3>Butterscotch Pudding</h3>
-                <p>Cookie topped with butterscotch pudding, butterscotch cookie crumble, and caramel drizzle.</p>
-              </div>
-            </div>
-
-            <div class="menu-item image-wanted peanut-cookie">
-              <div class="dessert-art cookie peanut"></div>
-              <div>
-                <h3>Peanut Butter</h3>
-                <p>Peanut butter cookie topped with peanut butter pudding, peanut crunch, and drizzle.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="process" class="process">
-        <div class="drip divider" aria-hidden="true"></div>
-        <div class="process-track">
-          <div class="process-step"><span>1</span><strong>Fresh baked</strong><p>Soft center. Crispy edge.</p></div>
-          <div class="process-step"><span>2</span><strong>Pudding drip</strong><p>Homemade flavor poured thick.</p></div>
-          <div class="process-step"><span>3</span><strong>Topped right</strong><p>Fruit, wafers, Oreos, crunch, crumble.</p></div>
-          <div class="process-step"><span>4</span><strong>Final drizzle</strong><p>The Gawddammn touch.</p></div>
-        </div>
-      </section>
-
-      <section id="catering" class="catering section-pad">
-        <div class="catering-card glass-panel light">
-          <div>
-            <p class="eyebrow dark">Pans & custom orders</p>
-            <h2>Need a pan? Say less.</h2>
-            <p>Small trays, full pans, party batches, and flavor mixes are available. Prices vary by pan size upon request.</p>
-            <a class="button primary" href="#order">Request a Pan Quote</a>
-          </div>
-          <div class="tray-preview">
-            <img src="public/images/GawddammnCOOKIESnCREAM.PNG" alt="Cookies n cream cookie preview" />
-            <img src="public/images/GawddammnSTRAWBERRY.PNG" alt="Strawberry cookie preview" />
-          </div>
-        </div>
-      </section>
-
-      <section id="gallery" class="gallery section-pad">
-        <div class="section-heading compact">
-          <p class="eyebrow dark">Tap to view</p>
-          <h2>Gallery</h2>
-          <p>Click any image to expand it, then swipe or use the arrows to move through the gallery.</p>
-        </div>
-        <div class="gallery-strip">
-          <button class="gallery-thumb" type="button" data-title="Main Gawddammn Hero"><img src="public/images/GawddammnHEROmain.PNG" alt="Gawddammn dessert hero" /></button>
-          <button class="gallery-thumb" type="button" data-title="Strawberry Pudding Cookie"><img src="public/images/GawddammnSTRAWBERRY.PNG" alt="Strawberry pudding cookie hero" /></button>
-          <button class="gallery-thumb" type="button" data-title="Oreo Cookie"><img src="public/images/GawddammnCOOKIESnCREAM.PNG" alt="Oreo cookie hero" /></button>
-          <button class="gallery-thumb" type="button" data-title="Gawddammn Logo"><img src="public/images/GawddammnLOGO.PNG" alt="Gawddammn logo sticker" /></button>
-        </div>
-      </section>
-
-      <section id="order" class="order section-pad">
-        <div class="order-panel glass-panel light">
-          <div class="order-copy">
-            <p class="eyebrow dark">Ready to order?</p>
-            <h2>Send your Gawddammn request.</h2>
-            <p>Cash App, Zelle, and Apple Pay accepted. For custom pans, include the size, date needed, and flavor mix.</p>
-          </div>
-          <form class="order-form" action="mailto:" method="post" enctype="text/plain">
-            <label>Your name<input name="name" placeholder="Your name" required /></label>
-            <label>Phone / IG handle<input name="contact" placeholder="Phone or IG" required /></label>
-            <label>Dessert<select name="dessert" required><option value="">Pick your dessert</option><optgroup label="Cheesecake Bites - $10/flavor"><option>Strawberry Crunch Cheesecake Bites</option><option>Cookie & Crème Cheesecake Bites</option><option>Fruity Pebbles Cheesecake Bites</option></optgroup><optgroup label="Cookies - $5 each"><option>Strawberry Pudding Cookie</option><option>Oreo Cookie</option><option>Banana Pudding Cookie</option><option>Butterscotch Pudding Cookie</option><option>Peanut Butter Cookie</option></optgroup><option>Custom pan / catering</option></select></label>
-            <label>Quantity / pan size<input name="quantity" placeholder="Example: 2 singles or half pan" /></label>
-            <label class="full">Notes<textarea name="notes" placeholder="Pickup date, delivery request, flavor mix, special instructions..."></textarea></label>
-            <button class="button primary full" type="submit">Send My Gawddammn Order</button>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <img src="public/images/GawddammnLOGO.PNG" alt="Gawddammn logo" />
-      <p>Made with love & the sweetest ingredients.</p>
-      <p>IG: @gawddammn_llc · FB: Anna · Cincinnati, OH</p>
-    </footer>
-  </div>
-
-  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Expanded gallery image">
-    <button class="lightbox-close" type="button" aria-label="Close gallery">×</button>
-    <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
-    <figure>
-      <img class="lightbox-img" src="" alt="" />
-      <figcaption class="lightbox-caption"></figcaption>
-    </figure>
-    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
-  </div>
-
+  <footer><img src="public/images/brand-wordmark.webp" alt="Gawddammn" /><p>Ate and left no crumbs.</p></footer>
   <script src="script.js"></script>
 </body>
 </html>
