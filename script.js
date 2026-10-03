@@ -1,4 +1,4 @@
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(pointer:fine)').matches;
 
 const revealItems = document.querySelectorAll(
@@ -19,8 +19,9 @@ const observer = new IntersectionObserver(entries => {
 revealItems.forEach(el => observer.observe(el));
 
 const parallax = document.querySelector('[data-parallax]');
-if (parallax && !reduceMotion && finePointer) {
+if (parallax && finePointer) {
   parallax.addEventListener('pointermove', e => {
+    if (motionPreference.matches) return;
     const rect = parallax.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -55,9 +56,10 @@ if (parallax && !reduceMotion && finePointer) {
 }
 
 document.querySelectorAll('.product-orbit').forEach(orbit => {
-  if (reduceMotion || !finePointer) return;
+  if (!finePointer) return;
 
   orbit.addEventListener('pointermove', e => {
+    if (motionPreference.matches) return;
     const rect = orbit.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -75,6 +77,53 @@ document.querySelectorAll('.product-orbit').forEach(orbit => {
     if (alt) alt.style.transform = 'rotate(-12deg)';
   });
 });
+
+// Keep the cookie artwork moving gently as its section passes through the viewport.
+const scrollCookies = [...document.querySelectorAll('.hero-cookie, .product-orbit img')];
+const smallScreen = window.matchMedia('(max-width: 620px)');
+let scrollFrame = 0;
+
+function updateScrollCookies() {
+  scrollFrame = 0;
+  if (motionPreference.matches) return;
+
+  const viewportHeight = window.innerHeight;
+  const mobile = smallScreen.matches;
+  scrollCookies.forEach((cookie, index) => {
+    const area = cookie.closest('.hero-stage, .product-orbit');
+    const rect = area.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1,
+      (viewportHeight - rect.top) / (viewportHeight + rect.height)
+    ));
+    const travel = (progress - .5) * 2;
+    const direction = index % 2 === 0 ? 1 : -1;
+
+    cookie.style.setProperty('--scroll-x', `${(travel * (mobile ? 6 : 18) * direction).toFixed(1)}px`);
+    cookie.style.setProperty('--scroll-y', `${(travel * (mobile ? 10 : 26)).toFixed(1)}px`);
+    cookie.style.setProperty('--scroll-scale', (1 + travel * (mobile ? .02 : .045)).toFixed(3));
+  });
+}
+
+function scheduleScrollCookies() {
+  if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollCookies);
+}
+
+window.addEventListener('scroll', scheduleScrollCookies, { passive: true });
+window.addEventListener('resize', scheduleScrollCookies);
+motionPreference.addEventListener('change', () => {
+  if (motionPreference.matches) {
+    scrollCookies.forEach(cookie => {
+      cookie.style.removeProperty('--scroll-x');
+      cookie.style.removeProperty('--scroll-y');
+      cookie.style.removeProperty('--scroll-scale');
+      cookie.style.transform = '';
+    });
+    if (parallax) parallax.querySelector('.hero-brandmark').style.transform = '';
+  } else {
+    scheduleScrollCookies();
+  }
+});
+scheduleScrollCookies();
 
 const orderForm = document.getElementById('orderForm');
 orderForm?.addEventListener('submit', async event => {
