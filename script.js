@@ -126,29 +126,58 @@ motionPreference.addEventListener('change', () => {
 scheduleScrollCookies();
 
 const orderForm = document.getElementById('orderForm');
+const formStatus = document.getElementById('formStatus');
+const orderSummary = document.getElementById('orderSummary');
+
 orderForm?.addEventListener('submit', async event => {
   event.preventDefault();
 
+  const submitButton = orderForm.querySelector('button[type="submit"]');
   const data = new FormData(orderForm);
-  const text = [
-    'Gawddammn Desserts order request',
-    `Name: ${data.get('name') || ''}`,
-    `Contact: ${data.get('contact') || ''}`,
+  const summary = [
     `Dessert: ${data.get('dessert') || ''}`,
     `Quantity/size: ${data.get('qty') || ''}`,
+    `Date needed: ${data.get('date_needed') || ''}`,
     `Notes: ${data.get('notes') || ''}`
   ].join('\n');
 
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch (_) {}
-
-  const button = orderForm.querySelector('button');
-  if (button) {
-    const original = button.textContent;
-    button.textContent = 'ORDER COPIED';
-    setTimeout(() => { button.textContent = original; }, 2200);
+  if (orderSummary) {
+    orderSummary.value = summary;
+    data.set('order_summary', summary);
   }
 
-  window.open('https://www.instagram.com/gawddammn_llc/', '_blank', 'noopener,noreferrer');
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'SENDING ORDER…';
+  }
+  if (formStatus) {
+    formStatus.className = 'form-status wide';
+    formStatus.textContent = '';
+  }
+
+  try {
+    const response = await fetch(orderForm.action, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' }
+    });
+
+    if (!response.ok) throw new Error('Formspree submission failed');
+
+    orderForm.reset();
+    if (formStatus) {
+      formStatus.className = 'form-status wide success';
+      formStatus.textContent = 'Order request sent. GWD will confirm availability and payment details.';
+    }
+  } catch (_) {
+    if (formStatus) {
+      formStatus.className = 'form-status wide error';
+      formStatus.textContent = 'Couldn’t send the order. Please try again or contact GWD on Instagram.';
+    }
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = 'SUBMIT ORDER REQUEST';
+    }
+  }
 });
