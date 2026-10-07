@@ -182,13 +182,18 @@
           <p>Cash App, Zelle, and Apple Pay accepted. Include quantity, flavor, date needed, and pan size if applicable.</p>
           <p class="social">Instagram: <b>@gawddammn_llc</b> · Facebook: <b>Anna</b></p>
         </div>
-        <form id="orderForm">
-          <label>Name<input name="name" required /></label>
-          <label>Phone / IG<input name="contact" required /></label>
+        <form id="orderForm" action="https://formspree.io/f/xqpeplgb" method="POST">
+          <input type="hidden" name="_subject" value="New Gawddammn Dessert Order" />
+          <input type="hidden" name="order_summary" id="orderSummary" value="" />
+          <label>Name<input name="name" autocomplete="name" required /></label>
+          <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+          <label>Phone / IG<input name="contact" autocomplete="tel" required /></label>
+          <label>Date needed<input type="date" name="date_needed" /></label>
           <label>Dessert<select name="dessert"><option>Oreo Wonder — $6</option><option>Carmel Biscoff — $6</option><option>Strawberry Pudding Cookie</option><option>Oreo Cookie</option><option>Banana Pudding Cookie</option><option>Butterscotch Pudding Cookie</option><option>Peanut Butter Cookie</option><option>Strawberry Crunch Cheesecake Bites</option><option>Cookie & Crème Cheesecake Bites</option><option>Fruity Pebbles Cheesecake Bites</option><option>Pudding cup / ask current flavor</option><option>Custom pan / catering</option></select></label>
           <label>Quantity / size<input name="qty" /></label>
-          <label class="wide">Notes<textarea name="notes"></textarea></label>
-          <button class="pill pink wide" type="submit">Copy order + open Instagram</button>
+          <label class="wide">Notes<textarea name="notes" placeholder="Pickup details, pan size, flavor requests, allergies, or anything else she should know."></textarea></label>
+          <p class="form-status wide" id="formStatus" role="status" aria-live="polite"></p>
+          <button class="pill pink wide" type="submit">Submit order request</button>
         </form>
       </div>
     </section>
